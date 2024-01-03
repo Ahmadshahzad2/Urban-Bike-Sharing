@@ -1,0 +1,1195 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Project},
+  pdfauthor={Ahmad Shahzad},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Project}
+\author{Ahmad Shahzad}
+\date{2023-11-21}
+
+\begin{document}
+\maketitle
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(readr)   }\CommentTok{\# For reading the data}
+\FunctionTok{library}\NormalTok{(dplyr)   }\CommentTok{\# For data manipulation}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(knitr)}
+\NormalTok{dataset }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"day.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Rows: 731 Columns: 16
+## -- Column specification --------------------------------------------------------
+## Delimiter: ","
+## dbl  (15): instant, season, yr, mnth, holiday, weekday, workingday, weathers...
+## date  (1): dteday
+## 
+## i Use `spec()` to retrieve the full column specification for this data.
+## i Specify the column types or set `show_col_types = FALSE` to quiet this message.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{kable}\NormalTok{(}\FunctionTok{head}\NormalTok{(dataset))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0606}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0833}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0530}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0227}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0379}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0606}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0606}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0833}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0833}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0682}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0682}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0682}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0758}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0530}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0833}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0379}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedleft
+instant
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+dteday
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+season
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+yr
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+mnth
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+holiday
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+weekday
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+workingday
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+weathersit
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+temp
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+atemp
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+hum
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+windspeed
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+casual
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+registered
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+cnt
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1 & 2011-01-01 & 1 & 0 & 1 & 0 & 6 & 0 & 2 & 0.344167 & 0.363625 &
+0.805833 & 0.1604460 & 331 & 654 & 985 \\
+2 & 2011-01-02 & 1 & 0 & 1 & 0 & 0 & 0 & 2 & 0.363478 & 0.353739 &
+0.696087 & 0.2485390 & 131 & 670 & 801 \\
+3 & 2011-01-03 & 1 & 0 & 1 & 0 & 1 & 1 & 1 & 0.196364 & 0.189405 &
+0.437273 & 0.2483090 & 120 & 1229 & 1349 \\
+4 & 2011-01-04 & 1 & 0 & 1 & 0 & 2 & 1 & 1 & 0.200000 & 0.212122 &
+0.590435 & 0.1602960 & 108 & 1454 & 1562 \\
+5 & 2011-01-05 & 1 & 0 & 1 & 0 & 3 & 1 & 1 & 0.226957 & 0.229270 &
+0.436957 & 0.1869000 & 82 & 1518 & 1600 \\
+6 & 2011-01-06 & 1 & 0 & 1 & 0 & 4 & 1 & 1 & 0.204348 & 0.233209 &
+0.518261 & 0.0895652 & 88 & 1518 & 1606 \\
+\end{longtable}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{str}\NormalTok{(dataset)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## spc_tbl_ [731 x 16] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+##  $ instant   : num [1:731] 1 2 3 4 5 6 7 8 9 10 ...
+##  $ dteday    : Date[1:731], format: "2011-01-01" "2011-01-02" ...
+##  $ season    : num [1:731] 1 1 1 1 1 1 1 1 1 1 ...
+##  $ yr        : num [1:731] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ mnth      : num [1:731] 1 1 1 1 1 1 1 1 1 1 ...
+##  $ holiday   : num [1:731] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ weekday   : num [1:731] 6 0 1 2 3 4 5 6 0 1 ...
+##  $ workingday: num [1:731] 0 0 1 1 1 1 1 0 0 1 ...
+##  $ weathersit: num [1:731] 2 2 1 1 1 1 2 2 1 1 ...
+##  $ temp      : num [1:731] 0.344 0.363 0.196 0.2 0.227 ...
+##  $ atemp     : num [1:731] 0.364 0.354 0.189 0.212 0.229 ...
+##  $ hum       : num [1:731] 0.806 0.696 0.437 0.59 0.437 ...
+##  $ windspeed : num [1:731] 0.16 0.249 0.248 0.16 0.187 ...
+##  $ casual    : num [1:731] 331 131 120 108 82 88 148 68 54 41 ...
+##  $ registered: num [1:731] 654 670 1229 1454 1518 ...
+##  $ cnt       : num [1:731] 985 801 1349 1562 1600 ...
+##  - attr(*, "spec")=
+##   .. cols(
+##   ..   instant = col_double(),
+##   ..   dteday = col_date(format = ""),
+##   ..   season = col_double(),
+##   ..   yr = col_double(),
+##   ..   mnth = col_double(),
+##   ..   holiday = col_double(),
+##   ..   weekday = col_double(),
+##   ..   workingday = col_double(),
+##   ..   weathersit = col_double(),
+##   ..   temp = col_double(),
+##   ..   atemp = col_double(),
+##   ..   hum = col_double(),
+##   ..   windspeed = col_double(),
+##   ..   casual = col_double(),
+##   ..   registered = col_double(),
+##   ..   cnt = col_double()
+##   .. )
+##  - attr(*, "problems")=<externalptr>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{dim}\NormalTok{(dataset)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 731  16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{colnames}\NormalTok{(dataset)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "instant"    "dteday"     "season"     "yr"         "mnth"      
+##  [6] "holiday"    "weekday"    "workingday" "weathersit" "temp"      
+## [11] "atemp"      "hum"        "windspeed"  "casual"     "registered"
+## [16] "cnt"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sum}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(dataset))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0
+\end{verbatim}
+
+\subsection{Reversing normalization}\label{reversing-normalization}
+
+Normalization is performed using the formula:
+
+\[
+\text{Normalized Value} = \frac{\text{Value} - \text{min}}{\text{max} - \text{min}}
+\]
+
+Where: - \(\text{Value}\) is the actual value. - \(\text{min}\) is the
+minimum value in the range. - \(\text{max}\) is the maximum value in the
+range.
+
+To reverse the normalization and retrieve the actual values, we use the
+formula:
+
+\[
+\text{Value} = (\text{Normalized Value} \times (\text{max} - \text{min})) + \text{min}
+\]
+
+Where: - \(\text{Normalized Value}\) is the value after normalization. -
+\(\text{min}\) and \(\text{max}\) are as defined above.
+
+The details of the normalization is mentioned in the dataset description
+and the abstract
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Denormalize temperature (temp)}
+\CommentTok{\# temp\_min = {-}8, temp\_max = 39}
+\NormalTok{dataset}\SpecialCharTok{$}\NormalTok{temp\_actual }\OtherTok{=}\NormalTok{ (dataset}\SpecialCharTok{$}\NormalTok{temp }\SpecialCharTok{*}\NormalTok{ (}\DecValTok{39} \SpecialCharTok{{-}}\NormalTok{ (}\SpecialCharTok{{-}}\DecValTok{8}\NormalTok{))) }\SpecialCharTok{+}\NormalTok{ (}\SpecialCharTok{{-}}\DecValTok{8}\NormalTok{)}
+
+\CommentTok{\# Denormalize feeling temperature (atemp)}
+\CommentTok{\# atemp\_min = {-}16, atemp\_max = 50}
+\NormalTok{dataset}\SpecialCharTok{$}\NormalTok{atemp\_actual }\OtherTok{=}\NormalTok{ (dataset}\SpecialCharTok{$}\NormalTok{atemp }\SpecialCharTok{*}\NormalTok{ (}\DecValTok{50} \SpecialCharTok{{-}}\NormalTok{ (}\SpecialCharTok{{-}}\DecValTok{16}\NormalTok{))) }\SpecialCharTok{+}\NormalTok{ (}\SpecialCharTok{{-}}\DecValTok{16}\NormalTok{)}
+
+\CommentTok{\# Denormalize humidity (hum)}
+\CommentTok{\# Since it\textquotesingle{}s divided by 100, we just multiply by 100}
+\NormalTok{dataset}\SpecialCharTok{$}\NormalTok{hum\_actual }\OtherTok{=}\NormalTok{ dataset}\SpecialCharTok{$}\NormalTok{hum }\SpecialCharTok{*} \DecValTok{100}
+
+\CommentTok{\# Denormalize wind speed (windspeed)}
+\CommentTok{\# windspeed\_max = 67}
+\NormalTok{dataset}\SpecialCharTok{$}\NormalTok{windspeed\_actual }\OtherTok{=}\NormalTok{ dataset}\SpecialCharTok{$}\NormalTok{windspeed }\SpecialCharTok{*} \DecValTok{67}
+
+\CommentTok{\# View the first few rows of the dataset to confirm the changes}
+\FunctionTok{kable}\NormalTok{(}\FunctionTok{head}\NormalTok{(dataset)}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 38\tabcolsep) * \real{0.0432}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 38\tabcolsep) * \real{0.0595}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 38\tabcolsep) * \real{0.0378}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 38\tabcolsep) * \real{0.0162}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 38\tabcolsep) * \real{0.0270}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 38\tabcolsep) * \real{0.0432}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 38\tabcolsep) * \real{0.0432}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 38\tabcolsep) * \real{0.0595}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 38\tabcolsep) * \real{0.0595}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 38\tabcolsep) * \real{0.0486}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 38\tabcolsep) * \real{0.0486}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 38\tabcolsep) * \real{0.0486}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 38\tabcolsep) * \real{0.0541}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 38\tabcolsep) * \real{0.0378}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 38\tabcolsep) * \real{0.0595}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 38\tabcolsep) * \real{0.0270}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 38\tabcolsep) * \real{0.0649}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 38\tabcolsep) * \real{0.0703}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 38\tabcolsep) * \real{0.0595}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 38\tabcolsep) * \real{0.0919}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedleft
+instant
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+dteday
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+season
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+yr
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+mnth
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+holiday
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+weekday
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+workingday
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+weathersit
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+temp
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+atemp
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+hum
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+windspeed
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+casual
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+registered
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+cnt
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+temp\_actual
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+atemp\_actual
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+hum\_actual
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+windspeed\_actual
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1 & 2011-01-01 & 1 & 0 & 1 & 0 & 6 & 0 & 2 & 0.344167 & 0.363625 &
+0.805833 & 0.1604460 & 331 & 654 & 985 & 8.175849 & 7.999250 & 80.5833 &
+10.749882 \\
+2 & 2011-01-02 & 1 & 0 & 1 & 0 & 0 & 0 & 2 & 0.363478 & 0.353739 &
+0.696087 & 0.2485390 & 131 & 670 & 801 & 9.083466 & 7.346774 & 69.6087 &
+16.652113 \\
+3 & 2011-01-03 & 1 & 0 & 1 & 0 & 1 & 1 & 1 & 0.196364 & 0.189405 &
+0.437273 & 0.2483090 & 120 & 1229 & 1349 & 1.229108 & -3.499270 &
+43.7273 & 16.636703 \\
+4 & 2011-01-04 & 1 & 0 & 1 & 0 & 2 & 1 & 1 & 0.200000 & 0.212122 &
+0.590435 & 0.1602960 & 108 & 1454 & 1562 & 1.400000 & -1.999948 &
+59.0435 & 10.739832 \\
+5 & 2011-01-05 & 1 & 0 & 1 & 0 & 3 & 1 & 1 & 0.226957 & 0.229270 &
+0.436957 & 0.1869000 & 82 & 1518 & 1600 & 2.666979 & -0.868180 & 43.6957
+& 12.522300 \\
+6 & 2011-01-06 & 1 & 0 & 1 & 0 & 4 & 1 & 1 & 0.204348 & 0.233209 &
+0.518261 & 0.0895652 & 88 & 1518 & 1606 & 1.604356 & -0.608206 & 51.8261
+& 6.000868 \\
+\end{longtable}
+
+\subsection{EDA}\label{eda}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{library}\NormalTok{(dplyr)}
+\FunctionTok{library}\NormalTok{(gridExtra) }\CommentTok{\# For arranging multiple plots}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'gridExtra'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:dplyr':
+## 
+##     combine
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{key\_variables }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"temp\_actual"}\NormalTok{, }\StringTok{"atemp\_actual"}\NormalTok{, }\StringTok{"hum\_actual"}\NormalTok{,}
+                   \StringTok{"windspeed\_actual"}\NormalTok{, }\StringTok{"cnt"}\NormalTok{)}
+\NormalTok{statistics }\OtherTok{\textless{}{-}}\NormalTok{ dataset[, key\_variables] }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{summary}\NormalTok{()}
+\NormalTok{statistics}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   temp_actual      atemp_actual       hum_actual    windspeed_actual
+##  Min.   :-5.221   Min.   :-10.781   Min.   : 0.00   Min.   : 1.500  
+##  1st Qu.: 7.843   1st Qu.:  6.298   1st Qu.:52.00   1st Qu.: 9.042  
+##  Median :15.422   Median : 16.124   Median :62.67   Median :12.125  
+##  Mean   :15.283   Mean   : 15.307   Mean   :62.79   Mean   :12.763  
+##  3rd Qu.:22.805   3rd Qu.: 24.168   3rd Qu.:73.02   3rd Qu.:15.625  
+##  Max.   :32.498   Max.   : 39.499   Max.   :97.25   Max.   :34.000  
+##       cnt      
+##  Min.   :  22  
+##  1st Qu.:3152  
+##  Median :4548  
+##  Mean   :4504  
+##  3rd Qu.:5956  
+##  Max.   :8714
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Load necessary libraries}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{library}\NormalTok{(gridExtra) }\CommentTok{\# For arranging plots}
+
+\CommentTok{\# Set a consistent theme}
+\NormalTok{base\_theme }\OtherTok{\textless{}{-}} \FunctionTok{theme\_minimal}\NormalTok{() }\SpecialCharTok{+} 
+              \FunctionTok{theme}\NormalTok{(}\AttributeTok{plot.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{hjust =} \FloatTok{0.5}\NormalTok{),}
+                    \AttributeTok{axis.text =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{12}\NormalTok{),}
+                    \AttributeTok{axis.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{14}\NormalTok{))}
+
+\CommentTok{\# Create individual plots with improved aesthetics}
+\NormalTok{p1 }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(dataset, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ temp\_actual)) }\SpecialCharTok{+}
+      \FunctionTok{geom\_histogram}\NormalTok{(}\AttributeTok{bins =} \DecValTok{30}\NormalTok{, }\AttributeTok{fill =} \StringTok{"steelblue"}\NormalTok{, }\AttributeTok{color =} \StringTok{"black"}\NormalTok{) }\SpecialCharTok{+}
+      \FunctionTok{ggtitle}\NormalTok{(}\StringTok{"Histogram of temp\_actual"}\NormalTok{) }\SpecialCharTok{+}
+\NormalTok{      base\_theme}
+
+\NormalTok{p3 }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(dataset, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ hum\_actual)) }\SpecialCharTok{+}
+      \FunctionTok{geom\_histogram}\NormalTok{(}\AttributeTok{bins =} \DecValTok{30}\NormalTok{, }\AttributeTok{fill =} \StringTok{"tomato"}\NormalTok{, }\AttributeTok{color =} \StringTok{"black"}\NormalTok{) }\SpecialCharTok{+}
+      \FunctionTok{ggtitle}\NormalTok{(}\StringTok{"Histogram of hum\_actual"}\NormalTok{) }\SpecialCharTok{+}
+\NormalTok{      base\_theme}
+
+\NormalTok{p4 }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(dataset, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ windspeed\_actual)) }\SpecialCharTok{+}
+      \FunctionTok{geom\_histogram}\NormalTok{(}\AttributeTok{bins =} \DecValTok{30}\NormalTok{, }\AttributeTok{fill =} \StringTok{"mediumpurple"}\NormalTok{, }\AttributeTok{color =} \StringTok{"black"}\NormalTok{) }\SpecialCharTok{+}
+      \FunctionTok{ggtitle}\NormalTok{(}\StringTok{"Histogram of windspeed\_actual"}\NormalTok{) }\SpecialCharTok{+}
+\NormalTok{      base\_theme}
+
+\NormalTok{p5 }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(dataset, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ cnt)) }\SpecialCharTok{+}
+      \FunctionTok{geom\_histogram}\NormalTok{(}\AttributeTok{bins =} \DecValTok{30}\NormalTok{, }\AttributeTok{fill =} \StringTok{"sandybrown"}\NormalTok{, }\AttributeTok{color =} \StringTok{"black"}\NormalTok{) }\SpecialCharTok{+}
+      \FunctionTok{ggtitle}\NormalTok{(}\StringTok{"Histogram of cnt"}\NormalTok{) }\SpecialCharTok{+}
+      \FunctionTok{xlab}\NormalTok{(}\StringTok{"Total Users/Day"}\NormalTok{) }\SpecialCharTok{+}
+\NormalTok{      base\_theme}
+
+\CommentTok{\# Arrange the plots in a grid with 2 columns}
+\FunctionTok{grid.arrange}\NormalTok{(p1, p3, p4, p5, }\AttributeTok{ncol =} \DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{project_files/figure-latex/unnamed-chunk-10-1.pdf}
+
+\begin{itemize}
+\item
+  \textbf{Temperature (°C)}: Mean = 15.28, Std Dev = 8.60, Min = -5.22,
+  Max = 32.50
+\item
+  \textbf{Feeling Temperature (°C)}: Mean = 15.31, Std Dev = 10.76, Min
+  = -10.78, Max = 39.50
+\item
+  \textbf{Humidity (\%)}: Mean = 62.79, Std Dev = 14.24, Min = 0.00, Max
+  = 97.25
+\item
+  \textbf{Wind Speed}: Mean = 12.76, Std Dev = 5.19, Min = 1.50, Max =
+  34.00
+\item
+  \textbf{Total Bike Rentals}: Mean = 4504.35, Std Dev = 1937.21, Min =
+  22, Max = 8714
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Set a color palette}
+\NormalTok{point\_color }\OtherTok{\textless{}{-}} \StringTok{"deepskyblue4"}
+\NormalTok{line\_color }\OtherTok{\textless{}{-}} \StringTok{"darkorange"}
+
+\CommentTok{\# Create scatter plots with improved aesthetics}
+\NormalTok{p1 }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(dataset, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ temp\_actual, }\AttributeTok{y =}\NormalTok{ cnt)) }\SpecialCharTok{+} 
+      \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{color =}\NormalTok{ point\_color, }\AttributeTok{alpha =} \FloatTok{0.6}\NormalTok{) }\SpecialCharTok{+} 
+      \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =} \StringTok{"loess"}\NormalTok{, }\AttributeTok{se =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{color =}\NormalTok{ line\_color) }\SpecialCharTok{+} 
+      \FunctionTok{ggtitle}\NormalTok{(}\StringTok{\textquotesingle{}Temperature vs Total Bike Rentals\textquotesingle{}}\NormalTok{) }\SpecialCharTok{+}
+\NormalTok{      base\_theme}
+
+\NormalTok{p2 }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(dataset, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ atemp\_actual, }\AttributeTok{y =}\NormalTok{ cnt)) }\SpecialCharTok{+} 
+      \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{color =}\NormalTok{ point\_color, }\AttributeTok{alpha =} \FloatTok{0.6}\NormalTok{) }\SpecialCharTok{+} 
+      \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =} \StringTok{"loess"}\NormalTok{, }\AttributeTok{se =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{color =}\NormalTok{ line\_color) }\SpecialCharTok{+} 
+      \FunctionTok{ggtitle}\NormalTok{(}\StringTok{\textquotesingle{}Feeling Temperature vs Total Bike Rentals\textquotesingle{}}\NormalTok{) }\SpecialCharTok{+}
+\NormalTok{      base\_theme}
+
+\NormalTok{p3 }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(dataset, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ hum\_actual, }\AttributeTok{y =}\NormalTok{ cnt)) }\SpecialCharTok{+} 
+      \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{color =}\NormalTok{ point\_color, }\AttributeTok{alpha =} \FloatTok{0.6}\NormalTok{) }\SpecialCharTok{+} 
+      \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =} \StringTok{"loess"}\NormalTok{, }\AttributeTok{se =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{color =}\NormalTok{ line\_color) }\SpecialCharTok{+} 
+      \FunctionTok{ggtitle}\NormalTok{(}\StringTok{\textquotesingle{}Humidity vs Total Bike Rentals\textquotesingle{}}\NormalTok{) }\SpecialCharTok{+}
+\NormalTok{      base\_theme}
+
+\NormalTok{p4 }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(dataset, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ windspeed\_actual, }\AttributeTok{y =}\NormalTok{ cnt)) }\SpecialCharTok{+} 
+      \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{color =}\NormalTok{ point\_color, }\AttributeTok{alpha =} \FloatTok{0.6}\NormalTok{) }\SpecialCharTok{+} 
+      \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =} \StringTok{"loess"}\NormalTok{, }\AttributeTok{se =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{color =}\NormalTok{ line\_color) }\SpecialCharTok{+} 
+      \FunctionTok{ggtitle}\NormalTok{(}\StringTok{\textquotesingle{}Wind Speed vs Total Bike Rentals\textquotesingle{}}\NormalTok{) }\SpecialCharTok{+}
+\NormalTok{      base\_theme}
+
+\CommentTok{\# Arrange the plots in a grid with 2 rows}
+\FunctionTok{grid.arrange}\NormalTok{(p1, p2, p3, p4, }\AttributeTok{nrow =} \DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `geom_smooth()` using formula = 'y ~ x'
+## `geom_smooth()` using formula = 'y ~ x'
+## `geom_smooth()` using formula = 'y ~ x'
+## `geom_smooth()` using formula = 'y ~ x'
+\end{verbatim}
+
+\includegraphics{project_files/figure-latex/unnamed-chunk-11-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Assuming you have a dataframe called \textquotesingle{}data\textquotesingle{}}
+\CommentTok{\# Replace \textquotesingle{}value\_column\textquotesingle{}, \textquotesingle{}facet\_column\textquotesingle{}, and \textquotesingle{}data\textquotesingle{} with your actual column names and dataframe}
+
+\NormalTok{dataset }\OtherTok{\textless{}{-}}\NormalTok{ dataset }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{season\_cat =} \FunctionTok{case\_when}\NormalTok{(}
+\NormalTok{    season }\SpecialCharTok{==} \DecValTok{1} \SpecialCharTok{\textasciitilde{}} \StringTok{"Winter"}\NormalTok{,}
+\NormalTok{    season }\SpecialCharTok{==} \DecValTok{2} \SpecialCharTok{\textasciitilde{}} \StringTok{"Spring"}\NormalTok{,}
+\NormalTok{    season }\SpecialCharTok{==} \DecValTok{3} \SpecialCharTok{\textasciitilde{}} \StringTok{"Summer"}\NormalTok{,}
+\NormalTok{    season }\SpecialCharTok{==} \DecValTok{4} \SpecialCharTok{\textasciitilde{}} \StringTok{"Fall"}\NormalTok{,}
+    \ConstantTok{TRUE} \SpecialCharTok{\textasciitilde{}} \StringTok{"Unknown"}  \CommentTok{\# Optional: for any value that is not 1, 2, 3, or 4}
+\NormalTok{  ))}
+
+\NormalTok{dataset }\OtherTok{\textless{}{-}}\NormalTok{ dataset }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{weathersit\_cat =} \FunctionTok{case\_when}\NormalTok{(}
+\NormalTok{    weathersit }\SpecialCharTok{==} \DecValTok{1} \SpecialCharTok{\textasciitilde{}} \StringTok{"Clear/Partly cloudy"}\NormalTok{,}
+\NormalTok{    weathersit }\SpecialCharTok{==} \DecValTok{2} \SpecialCharTok{\textasciitilde{}} \StringTok{"Mist/Few clouds"}\NormalTok{,}
+\NormalTok{    weathersit }\SpecialCharTok{==} \DecValTok{3} \SpecialCharTok{\textasciitilde{}} \StringTok{"Light Snow/Thunderstorm"}\NormalTok{,}
+\NormalTok{    weathersit }\SpecialCharTok{==} \DecValTok{4} \SpecialCharTok{\textasciitilde{}} \StringTok{"Heavy Rain/snow"}\NormalTok{,}
+    \ConstantTok{TRUE} \SpecialCharTok{\textasciitilde{}} \StringTok{"Unknown"}  \CommentTok{\# Optional: for any value that is not 1, 2, 3, or 4}
+\NormalTok{  ))}
+
+
+\CommentTok{\# Create the violin plot}
+\FunctionTok{ggplot}\NormalTok{(dataset, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{season\_cat, }\AttributeTok{y=}\NormalTok{cnt, }\AttributeTok{fill=}\NormalTok{season\_cat)) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_violin}\NormalTok{(}\AttributeTok{trim=}\ConstantTok{FALSE}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_jitter}\NormalTok{(}\AttributeTok{width=}\FloatTok{0.2}\NormalTok{, }\AttributeTok{alpha=}\FloatTok{0.5}\NormalTok{) }\SpecialCharTok{+}  \CommentTok{\# Add jittered data points}
+  \FunctionTok{scale\_fill\_brewer}\NormalTok{(}\AttributeTok{palette=}\StringTok{"Pastel1"}\NormalTok{) }\SpecialCharTok{+}  \CommentTok{\# Color scheme}
+  \FunctionTok{theme\_minimal}\NormalTok{() }\SpecialCharTok{+} 
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{axis.text.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{angle =} \DecValTok{45}\NormalTok{, }\AttributeTok{hjust =} \DecValTok{1}\NormalTok{)) }\SpecialCharTok{+}  \CommentTok{\# Rotate X{-}axis labels}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title=}\StringTok{"Total Users vs. Season"}\NormalTok{,}
+       \AttributeTok{x=}\StringTok{"Season"}\NormalTok{, }\AttributeTok{y=}\StringTok{"Total Users"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{project_files/figure-latex/unnamed-chunk-12-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(dataset, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{weathersit\_cat, }\AttributeTok{y=}\NormalTok{cnt, }\AttributeTok{fill=}\NormalTok{weathersit\_cat)) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_violin}\NormalTok{(}\AttributeTok{trim=}\ConstantTok{FALSE}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_jitter}\NormalTok{(}\AttributeTok{width=}\FloatTok{0.2}\NormalTok{, }\AttributeTok{alpha=}\FloatTok{0.5}\NormalTok{) }\SpecialCharTok{+}  \CommentTok{\# Add jittered data points}
+  \FunctionTok{scale\_fill\_brewer}\NormalTok{(}\AttributeTok{palette=}\StringTok{"Set2"}\NormalTok{) }\SpecialCharTok{+}  \CommentTok{\# Color scheme}
+  \FunctionTok{theme\_minimal}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{axis.text.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{angle =} \DecValTok{45}\NormalTok{, }\AttributeTok{hjust =} \DecValTok{1}\NormalTok{)) }\SpecialCharTok{+}  \CommentTok{\# Rotate X{-}axis labels}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title=}\StringTok{"Total Users vs. Weather Situation"}\NormalTok{,}
+       \AttributeTok{x=}\StringTok{"Weather Situation"}\NormalTok{, }\AttributeTok{y=}\StringTok{"Total Users"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{project_files/figure-latex/unnamed-chunk-12-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(reshape2)}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+
+\CommentTok{\# Assuming your dataset is named \textquotesingle{}dataset\textquotesingle{}}
+\NormalTok{correlation\_matrix }\OtherTok{\textless{}{-}} \FunctionTok{cor}\NormalTok{(dataset[, }\FunctionTok{c}\NormalTok{(}\StringTok{"temp\_actual"}\NormalTok{, }\StringTok{"hum\_actual"}\NormalTok{, }\StringTok{"windspeed\_actual"}\NormalTok{, }\StringTok{"holiday"}\NormalTok{, }\StringTok{"weekday"}\NormalTok{, }\StringTok{"workingday"}\NormalTok{, }\StringTok{"cnt"}\NormalTok{)])}
+
+\CommentTok{\# Melting the correlation matrix}
+\NormalTok{melted\_correlation\_matrix }\OtherTok{\textless{}{-}} \FunctionTok{melt}\NormalTok{(correlation\_matrix)}
+
+\CommentTok{\# Plotting the heatmap with enhanced axis text}
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ melted\_correlation\_matrix, }\FunctionTok{aes}\NormalTok{(Var1, Var2, }\AttributeTok{fill =}\NormalTok{ value)) }\SpecialCharTok{+}
+    \FunctionTok{geom\_tile}\NormalTok{(}\AttributeTok{color =} \StringTok{"black"}\NormalTok{) }\SpecialCharTok{+}
+    \FunctionTok{geom\_text}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{label =} \FunctionTok{sprintf}\NormalTok{(}\StringTok{"\%.2f"}\NormalTok{, value)), }\AttributeTok{size =} \DecValTok{3}\NormalTok{, }\AttributeTok{vjust =} \DecValTok{1}\NormalTok{) }\SpecialCharTok{+}
+    \FunctionTok{scale\_fill\_gradient2}\NormalTok{(}\AttributeTok{low =} \StringTok{"blue"}\NormalTok{, }\AttributeTok{high =} \StringTok{"red"}\NormalTok{, }\AttributeTok{mid =} \StringTok{"white"}\NormalTok{, }\AttributeTok{midpoint =} \DecValTok{0}\NormalTok{) }\SpecialCharTok{+}
+    \FunctionTok{theme\_minimal}\NormalTok{() }\SpecialCharTok{+}
+    \FunctionTok{theme}\NormalTok{(}\AttributeTok{axis.text.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{angle =} \DecValTok{45}\NormalTok{, }\AttributeTok{hjust =} \DecValTok{1}\NormalTok{, }\AttributeTok{size =} \DecValTok{12}\NormalTok{, }\AttributeTok{face =} \StringTok{"bold"}\NormalTok{),  }\CommentTok{\# Increased and bolded x{-}axis text}
+          \AttributeTok{axis.text.y =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{12}\NormalTok{, }\AttributeTok{face =} \StringTok{"bold"}\NormalTok{),  }\CommentTok{\# Increased and bolded y{-}axis text}
+          \AttributeTok{axis.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{12}\NormalTok{),  }\CommentTok{\# Adjusted axis title size}
+          \AttributeTok{plot.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{14}\NormalTok{)) }\SpecialCharTok{+}  \CommentTok{\# Adjusted plot title size}
+    \FunctionTok{ggtitle}\NormalTok{(}\StringTok{\textquotesingle{}Correlation Matrix of All Variables\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{project_files/figure-latex/correlation-heatmap-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Creating a boxplot faceted by season}
+\FunctionTok{ggplot}\NormalTok{(dataset, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ season\_cat, }\AttributeTok{y =}\NormalTok{ cnt, }\AttributeTok{fill =}\NormalTok{ season\_cat)) }\SpecialCharTok{+} 
+    \FunctionTok{geom\_boxplot}\NormalTok{() }\SpecialCharTok{+} 
+    \FunctionTok{ggtitle}\NormalTok{(}\StringTok{"Bike Rentals by Season"}\NormalTok{) }\SpecialCharTok{+}
+    \FunctionTok{xlab}\NormalTok{(}\StringTok{"Season"}\NormalTok{) }\SpecialCharTok{+}
+    \FunctionTok{ylab}\NormalTok{(}\StringTok{"Total Bike Rentals"}\NormalTok{) }\SpecialCharTok{+}
+    \FunctionTok{theme\_minimal}\NormalTok{() }\SpecialCharTok{+}  \CommentTok{\# Clean and modern theme}
+    \FunctionTok{theme}\NormalTok{(}\AttributeTok{plot.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{hjust =} \FloatTok{0.5}\NormalTok{, }\AttributeTok{size =} \DecValTok{16}\NormalTok{, }\AttributeTok{face =} \StringTok{"bold"}\NormalTok{),}
+          \AttributeTok{axis.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{14}\NormalTok{),}
+          \AttributeTok{axis.text =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{12}\NormalTok{),}
+          \AttributeTok{legend.position =} \StringTok{"none"}\NormalTok{)  }\CommentTok{\# Remove legend as fill color is same as x{-}axis}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{project_files/figure-latex/unnamed-chunk-13-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ggplot2)}
+
+\FunctionTok{ggplot}\NormalTok{(dataset, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ weathersit\_cat, }\AttributeTok{y =}\NormalTok{ cnt, }\AttributeTok{fill =}\NormalTok{ weathersit\_cat)) }\SpecialCharTok{+} 
+    \FunctionTok{geom\_boxplot}\NormalTok{() }\SpecialCharTok{+} 
+    \FunctionTok{ggtitle}\NormalTok{(}\StringTok{"Bike Rentals by Weather Situation"}\NormalTok{) }\SpecialCharTok{+}
+    \FunctionTok{xlab}\NormalTok{(}\StringTok{"Weather Situation"}\NormalTok{) }\SpecialCharTok{+}
+    \FunctionTok{ylab}\NormalTok{(}\StringTok{"Total Bike Rentals"}\NormalTok{) }\SpecialCharTok{+}
+    \FunctionTok{theme\_minimal}\NormalTok{() }\SpecialCharTok{+}  \CommentTok{\# Applying a clean and modern theme}
+    \FunctionTok{theme}\NormalTok{(}\AttributeTok{plot.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{hjust =} \FloatTok{0.5}\NormalTok{, }\AttributeTok{size =} \DecValTok{16}\NormalTok{, }\AttributeTok{face =} \StringTok{"bold"}\NormalTok{),}
+          \AttributeTok{axis.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{14}\NormalTok{),}
+          \AttributeTok{axis.text.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{angle =} \DecValTok{45}\NormalTok{, }\AttributeTok{hjust =} \DecValTok{1}\NormalTok{, }\AttributeTok{size =} \DecValTok{12}\NormalTok{),  }\CommentTok{\# Slanting x{-}axis text}
+          \AttributeTok{axis.text.y =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{12}\NormalTok{),}
+          \AttributeTok{strip.text =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{12}\NormalTok{, }\AttributeTok{face =} \StringTok{"bold"}\NormalTok{), }\CommentTok{\# Enhancing facet labels}
+          \AttributeTok{legend.position =} \StringTok{"none"}\NormalTok{)  }\CommentTok{\# Removing the legend}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{project_files/figure-latex/unnamed-chunk-14-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Enhanced histogram plot with faceting}
+\FunctionTok{ggplot}\NormalTok{(dataset, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ cnt)) }\SpecialCharTok{+} 
+    \FunctionTok{geom\_histogram}\NormalTok{(}\AttributeTok{bins =} \DecValTok{30}\NormalTok{, }\AttributeTok{fill =} \StringTok{"skyblue"}\NormalTok{, }\AttributeTok{color =} \StringTok{"black"}\NormalTok{) }\SpecialCharTok{+} 
+    \FunctionTok{facet\_wrap}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{workingday, }\AttributeTok{labeller =} \FunctionTok{labeller}\NormalTok{(}\AttributeTok{workingday =} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}0\textquotesingle{}} \OtherTok{=} \StringTok{\textquotesingle{}Holiday\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}1\textquotesingle{}} \OtherTok{=} \StringTok{\textquotesingle{}Working Day\textquotesingle{}}\NormalTok{))) }\SpecialCharTok{+}  \CommentTok{\# Faceting with clear labels}
+    \FunctionTok{ggtitle}\NormalTok{(}\StringTok{"Bike Rentals on Working Days vs. Holidays"}\NormalTok{) }\SpecialCharTok{+}
+    \FunctionTok{xlab}\NormalTok{(}\StringTok{"Total Bike Rentals"}\NormalTok{) }\SpecialCharTok{+}
+    \FunctionTok{ylab}\NormalTok{(}\StringTok{"Frequency"}\NormalTok{) }\SpecialCharTok{+}
+    \FunctionTok{theme\_minimal}\NormalTok{() }\SpecialCharTok{+}  \CommentTok{\# Applying a clean and modern theme}
+    \FunctionTok{theme}\NormalTok{(}\AttributeTok{plot.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{hjust =} \FloatTok{0.5}\NormalTok{, }\AttributeTok{size =} \DecValTok{16}\NormalTok{, }\AttributeTok{face =} \StringTok{"bold"}\NormalTok{),}
+          \AttributeTok{axis.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{14}\NormalTok{),}
+          \AttributeTok{axis.text =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{12}\NormalTok{),}
+          \AttributeTok{strip.text =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{12}\NormalTok{, }\AttributeTok{face =} \StringTok{"bold"}\NormalTok{))  }\CommentTok{\# Enhancing facet labels}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{project_files/figure-latex/unnamed-chunk-15-1.pdf}
+
+\subsection{Hypothesis Testing}\label{hypothesis-testing}
+
+\subsubsection{ANOVA test}\label{anova-test}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# ANOVA test}
+\NormalTok{anova\_result }\OtherTok{\textless{}{-}} \FunctionTok{aov}\NormalTok{(cnt }\SpecialCharTok{\textasciitilde{}} \FunctionTok{factor}\NormalTok{(weathersit), }\AttributeTok{data=}\NormalTok{dataset)}
+\FunctionTok{summary}\NormalTok{(anova\_result)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                     Df    Sum Sq   Mean Sq F value Pr(>F)    
+## factor(weathersit)   2 2.716e+08 135822286   40.07 <2e-16 ***
+## Residuals          728 2.468e+09   3389960                   
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+\begin{itemize}
+\item
+  \textbf{Sum of Squares (sum\_sq)}: The between-groups sum of squares
+  (for weathersit) is approximately 2.716×10\^{}8, and the within-groups
+  sum of squares (Residual) is about 2.468×10\^{}9
+\item
+  \textbf{Degrees of Freedom (df)}: There are 2 degrees of freedom for
+  weathersit (since it has 3 categories: 1, 2, and 3) and 728 degrees of
+  freedom for the residuals.
+\item
+  \textbf{F-statistic (F)}: The calculated F-statistic value is
+  approximately 40.07.
+\item
+  \textbf{P-value (PR(\textgreater F))}: The P-value is extremely low
+  (3.106×10\^{}−17).
+\end{itemize}
+
+\subsubsection{\texorpdfstring{\textbf{Interpretation:}}{Interpretation:}}\label{interpretation}
+
+\begin{itemize}
+\item
+  The low P-value (much less than 0.05) suggests that there are
+  statistically significant differences in the average number of bike
+  rentals (cnt) among different weather situations (clear/few clouds,
+  mist/cloudy, light snow/rain).
+\item
+  This result supports the hypothesis that weather conditions have a
+  significant impact on the number of daily active users on the
+  bike-sharing platform. Specifically, it indicates that the number of
+  users varies significantly with different weather conditions.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(car)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: carData
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'car'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:dplyr':
+## 
+##     recode
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{qqPlot}\NormalTok{(anova\_result, }\AttributeTok{id=}\ConstantTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{project_files/figure-latex/unnamed-chunk-17-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{leveneTest}\NormalTok{(cnt }\SpecialCharTok{\textasciitilde{}} \FunctionTok{factor}\NormalTok{(weathersit), }\AttributeTok{data=}\NormalTok{dataset)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Levene's Test for Homogeneity of Variance (center = median)
+##        Df F value  Pr(>F)  
+## group   2  2.9675 0.05205 .
+##       728                  
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+\subsubsection{\texorpdfstring{\textbf{Analysis and
+Interpretation:}}{Analysis and Interpretation:}}\label{analysis-and-interpretation}
+
+\paragraph{1. Boxplot of Bike Rentals for Different Weather
+Conditions}\label{boxplot-of-bike-rentals-for-different-weather-conditions}
+
+The boxplot visualizes the distribution of daily bike rentals (cnt)
+across different weather conditions. It can be observed that the median
+and spread of rentals vary with the weather, suggesting a potential
+impact of weather on bike rentals.
+
+\paragraph{2. QQ Plot of Residuals}\label{qq-plot-of-residuals}
+
+The QQ Plot (Quantile-Quantile Plot) of the residuals from the ANOVA
+model is used to check the normality of residuals, which is an
+assumption of ANOVA. The plot shows how closely the residuals follow a
+normal distribution. In this case, the residuals mostly follow the line,
+indicating a reasonable approximation to normality, though there are
+some deviations at the tails.
+
+\paragraph{3. Levene's Test for Equality of
+Variances}\label{levenes-test-for-equality-of-variances}
+
+Levene's Test result:
+
+\begin{itemize}
+\item
+  Statistic: 2.9675
+\item
+  P-value: 0.05205
+\end{itemize}
+
+Levene's Test is used to assess the equality of variances for a variable
+calculated for two or more groups. In this case, it tests whether the
+variance in daily bike rentals is the same across different weather
+conditions.
+
+\paragraph{Interpretation:}\label{interpretation-1}
+
+\begin{itemize}
+\item
+  The P-value is marginally above 0.05, suggesting a borderline result
+  regarding the equality of variances assumption.
+\item
+  While it's not a clear violation, this borderline result warrants
+  cautious interpretation of the ANOVA results, as ANOVA assumes equal
+  variances across groups.
+\end{itemize}
+
+\subsubsection{T test between Group 1 (weather situations 1 and 2) and
+Group 2 (weather situation 3) clear weather
+vs.~rainy/snowy}\label{t-test-between-group-1-weather-situations-1-and-2-and-group-2-weather-situation-3-clear-weather-vs.-rainysnowy}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Grouping weather situations}
+\NormalTok{group\_1\_2 }\OtherTok{\textless{}{-}} \FunctionTok{subset}\NormalTok{(dataset, weathersit }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{))}\SpecialCharTok{$}\NormalTok{cnt}
+\NormalTok{group\_3 }\OtherTok{\textless{}{-}} \FunctionTok{subset}\NormalTok{(dataset, weathersit }\SpecialCharTok{==} \DecValTok{3}\NormalTok{)}\SpecialCharTok{$}\NormalTok{cnt}
+
+\CommentTok{\# Conducting the t{-}test}
+\CommentTok{\# Assuming unequal variances (Welch Two Sample t{-}test)}
+\NormalTok{t\_test\_result }\OtherTok{\textless{}{-}} \FunctionTok{t.test}\NormalTok{(group\_1\_2, group\_3, }\AttributeTok{var.equal =} \ConstantTok{FALSE}\NormalTok{)}
+
+\CommentTok{\# Displaying the results}
+\FunctionTok{print}\NormalTok{(t\_test\_result)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Welch Two Sample t-test
+## 
+## data:  group_1_2 and group_3
+## t = 9.937, df = 22.86, p-value = 9.166e-10
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  2201.828 3360.080
+## sample estimates:
+## mean of x mean of y 
+##  4584.239  1803.286
+\end{verbatim}
+
+The t-test comparing the number of bike rentals (cnt) between two
+groups---Group 1 (weather situations 1 and 2) and Group 2 (weather
+situation 3)---yields the following results:
+
+\begin{itemize}
+\item
+  \textbf{T-statistic}: 9.937
+\item
+  \textbf{P-value}: 9.166×10\^{}−10
+\end{itemize}
+
+\subsubsection{\texorpdfstring{\textbf{Interpretation:}}{Interpretation:}}\label{interpretation-2}
+
+\begin{itemize}
+\item
+  The T-statistic is significantly high, and the P-value is extremely
+  low (much less than 0.05), indicating a statistically significant
+  difference in the number of bike rentals between the two groups.
+\item
+  This result supports the hypothesis that the number of daily active
+  users on the bike-sharing platform decreases significantly with
+  worsening weather conditions. Specifically, it shows that the number
+  of rentals is significantly lower in weather situation 3 (light snow,
+  light rain + thunderstorm + scattered clouds, light rain + scattered
+  clouds) compared to weather situations 1 and 2 (clear, few clouds,
+  partly cloudy, misty conditions).
+\end{itemize}
+
+\subsubsection{}\label{section}
+
+\subsection{Good weather vs Bad
+weather}\label{good-weather-vs-bad-weather}
+
+Group 1: Good weather (season 2 and 3 - spring and summer)
+
+Group 2: Bad weather (season 1 - winter
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Assuming your dataset is loaded into a variable named \textasciigrave{}data\textasciigrave{}}
+
+\CommentTok{\# Subset data for good weather (seasons 2 and 3)}
+\NormalTok{good\_weather }\OtherTok{\textless{}{-}} \FunctionTok{subset}\NormalTok{(dataset, season }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{))}\SpecialCharTok{$}\NormalTok{cnt}
+
+\CommentTok{\# Subset data for bad weather (season 1)}
+\NormalTok{bad\_weather }\OtherTok{\textless{}{-}} \FunctionTok{subset}\NormalTok{(dataset, season }\SpecialCharTok{==} \DecValTok{1}\NormalTok{)}\SpecialCharTok{$}\NormalTok{cnt}
+
+\CommentTok{\# Perform the t{-}test}
+\NormalTok{t\_test\_result }\OtherTok{\textless{}{-}} \FunctionTok{t.test}\NormalTok{(good\_weather, bad\_weather, }\AttributeTok{var.equal =} \ConstantTok{FALSE}\NormalTok{)}
+
+\CommentTok{\# Print the result}
+\FunctionTok{print}\NormalTok{(t\_test\_result)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Welch Two Sample t-test
+## 
+## data:  good_weather and bad_weather
+## t = 20.361, df = 405.38, p-value < 2.2e-16
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  2455.30 2980.08
+## sample estimates:
+## mean of x mean of y 
+##  5321.823  2604.133
+\end{verbatim}
+
+The t-test comparing the number of bike rentals (cnt) between two
+groups---Group 1 (good weather: spring and summer) and Group 2 (bad
+weather: winter)---yields the following results:
+
+\begin{itemize}
+\item
+  \textbf{T-statistic}: 20.361
+\item
+  \textbf{P-value}: 2.2e-16
+\end{itemize}
+
+\subsubsection{\texorpdfstring{\textbf{Interpretation:}}{Interpretation:}}\label{interpretation-3}
+
+\begin{itemize}
+\item
+  The T-statistic is notably high, and the P-value is extremely low (far
+  less than 0.05), indicating a statistically significant difference in
+  the number of bike rentals between the two groups.
+\item
+  This result strongly supports the hypothesis that the number of daily
+  active users on the bike-sharing platform is significantly higher in
+  good weather conditions (spring and summer) compared to bad weather
+  conditions (winter).
+\end{itemize}
+
+This analysis reaffirms that seasonal weather variations have a
+substantial impact on bike-sharing usage patterns, with more favorable
+weather conditions (like in spring and summer) leading to increased bike
+rentals.
+
+\subsection{Regression}\label{regression}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(dplyr)}
+
+\CommentTok{\# Dropping unnecessary columns and normalized columns}
+\NormalTok{bike\_data\_for\_regression }\OtherTok{\textless{}{-}}\NormalTok{ dataset }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(registered, casual, instant, dteday, temp, atemp,yr,mnth, hum, windspeed,weathersit,weathersit\_cat,season,season\_cat,atemp\_actual))}
+
+\CommentTok{\# Splitting the data into X (predictors) and y (response)}
+\NormalTok{X }\OtherTok{\textless{}{-}}\NormalTok{ bike\_data\_for\_regression }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{cnt)}
+\NormalTok{y }\OtherTok{\textless{}{-}}\NormalTok{ bike\_data\_for\_regression}\SpecialCharTok{$}\NormalTok{cnt}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(caret)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: lattice
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{42}\NormalTok{)  }\CommentTok{\# For reproducibility}
+\NormalTok{trainIndex }\OtherTok{\textless{}{-}} \FunctionTok{createDataPartition}\NormalTok{(y, }\AttributeTok{p =} \FloatTok{0.8}\NormalTok{, }\AttributeTok{list =} \ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{X\_train }\OtherTok{\textless{}{-}}\NormalTok{ X[trainIndex, ]}
+\NormalTok{X\_test }\OtherTok{\textless{}{-}}\NormalTok{ X[}\SpecialCharTok{{-}}\NormalTok{trainIndex, ]}
+\NormalTok{y\_train }\OtherTok{\textless{}{-}}\NormalTok{ y[trainIndex]}
+\NormalTok{y\_test }\OtherTok{\textless{}{-}}\NormalTok{ y[}\SpecialCharTok{{-}}\NormalTok{trainIndex]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Fitting the model}
+\NormalTok{regression\_model }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(y\_train }\SpecialCharTok{\textasciitilde{}}\NormalTok{ ., }\AttributeTok{data =}\NormalTok{ X\_train)}
+
+\CommentTok{\# Summary of the model}
+\FunctionTok{summary}\NormalTok{(regression\_model)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = y_train ~ ., data = X_train)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -4828.2 -1056.3   -42.4  1036.9  3651.9 
+## 
+## Coefficients:
+##                  Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)      4922.888    383.678  12.831  < 2e-16 ***
+## holiday          -332.068    345.982  -0.960    0.338    
+## weekday            28.161     29.421   0.957    0.339    
+## workingday        124.108    130.554   0.951    0.342    
+## temp_actual       141.679      6.938  20.421  < 2e-16 ***
+## hum_actual        -30.473      4.301  -7.085 4.04e-12 ***
+## windspeed_actual  -66.449     11.726  -5.667 2.30e-08 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 1421 on 580 degrees of freedom
+## Multiple R-squared:  0.4639, Adjusted R-squared:  0.4583 
+## F-statistic: 83.65 on 6 and 580 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Getting coefficients}
+\NormalTok{feature\_weights }\OtherTok{\textless{}{-}} \FunctionTok{coef}\NormalTok{(regression\_model)}
+
+\CommentTok{\# Displaying the coefficients}
+\NormalTok{feature\_weights}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      (Intercept)          holiday          weekday       workingday 
+##       4922.88795       -332.06812         28.16136        124.10755 
+##      temp_actual       hum_actual windspeed_actual 
+##        141.67899        -30.47337        -66.44892
+\end{verbatim}
+
+\subsubsection{\texorpdfstring{\textbf{Regression Analysis
+Summary}}{Regression Analysis Summary}}\label{regression-analysis-summary}
+
+\begin{itemize}
+\item
+  \textbf{Residuals}: The spread of residuals, ranging from -4828.2 to
+  3651.9, indicates the differences between observed and predicted
+  values of bike rentals. The median near -42.4 suggests a slight bias
+  in underestimation.
+\item
+  \textbf{Coefficients}:
+
+  \begin{itemize}
+  \item
+    \textbf{(Intercept) 4922.89}: This is the expected value of cnt when
+    all other predictors are 0. A high t-value and a very low p-value
+    (\textless{} 2e-16) indicate it's highly significant.
+  \item
+    \textbf{holiday -332.07}: Suggests bike rentals decrease by 332
+    units on holidays, but it's not statistically significant (p-value
+    0.338).
+  \item
+    \textbf{weekday 28.16}: Indicates a slight increase in bike rentals
+    depending on the day of the week, but not significant (p-value
+    0.339).
+  \item
+    \textbf{workingday 124.11}: Suggests an increase in bike rentals on
+    working days, but again, not statistically significant (p-value
+    0.342).
+  \item
+    \textbf{temp\_actual 141.68}: Shows a significant positive
+    relationship between temperature and bike rentals, with an increase
+    in temperature leading to more rentals.
+  \item
+    \textbf{hum\_actual -30.47}: Indicates that higher humidity is
+    associated with a decrease in bike rentals, and it's statistically
+    significant.
+  \item
+    \textbf{windspeed\_actual -66.45}: Shows that higher wind speeds are
+    associated with fewer bike rentals, and it's also significant.
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{\texorpdfstring{\textbf{Model
+Fit}}{Model Fit}}\label{model-fit}
+
+\begin{itemize}
+\item
+  \textbf{Residual Standard Error}: 1421 on 580 degrees of freedom. This
+  value measures the typical size of the residuals.
+\item
+  \textbf{Multiple R-squared}: 0.4639. About 46.39\% of the variance in
+  bike rental counts is explained by the model, which is a moderate fit.
+\item
+  \textbf{Adjusted R-squared}: 0.4583. This is a slight adjustment to
+  the R-squared value, accounting for the number of predictors.
+\item
+  \textbf{F-statistic}: 83.65 on 6 and 580 DF, with a p-value
+  \textless{} 2.2e-16. This suggests the model as a whole is
+  statistically significant.
+\end{itemize}
+
+\subsubsection{\texorpdfstring{\textbf{Interpretation}}{Interpretation}}\label{interpretation-4}
+
+\begin{itemize}
+\item
+  The model suggests that temperature has the most significant positive
+  impact on bike rentals, followed by negative impacts from humidity and
+  wind speed.
+\item
+  Variables like holidays, weekdays, and working days are not
+  statistically significant in predicting bike rentals in this model.
+\item
+  The model's moderate R-squared value implies there is room for
+  improvement, possibly by including other relevant variables or
+  interactions not considered in this model.
+\item
+  The significance of temperature, humidity, and wind speed aligns with
+  intuitive expectations about outdoor activities like bike-sharing.
+\end{itemize}
+
+\end{document}

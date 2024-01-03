@@ -1,0 +1,8 @@
+"0","library(caret)"
+"0","set.seed(42)  # For reproducibility"
+"0","trainIndex <- createDataPartition(y, p = 0.8, list = FALSE)"
+"0","X_train <- X[trainIndex, ]"
+"0","X_test <- X[-trainIndex, ]"
+"0","y_train <- y[trainIndex]"
+"0","y_test <- y[-trainIndex]"
+"0",""

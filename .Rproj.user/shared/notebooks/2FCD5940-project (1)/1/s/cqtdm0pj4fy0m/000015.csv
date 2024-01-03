@@ -1,0 +1,2 @@
+"0","anova_result <- aov(cnt ~ factor(weathersit), data=dataset)"
+"0","qqPlot(anova_result, id=FALSE)"

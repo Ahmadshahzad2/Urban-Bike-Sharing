@@ -1,0 +1,8 @@
+"0","library(dplyr)"
+"0","# Dropping unnecessary columns and normalized columns"
+"0","bike_data_for_regression <- dataset %>%"
+"0","  select(-c(registered, casual, instant, dteday, temp, atemp,yr,mnth, hum, windspeed,weathersit,weathersit_cat,season,season_cat,atemp_actual))"
+"0","# Splitting the data into X (predictors) and y (response)"
+"0","X <- bike_data_for_regression %>% select(-cnt)"
+"0","y <- bike_data_for_regression$cnt"
+"0",""

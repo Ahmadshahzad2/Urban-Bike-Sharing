@@ -1,0 +1,15 @@
+"0",""
+"0","library(ggplot2)"
+"2","Want to understand how all the pieces fit together? Read R for Data Science: https://r4ds.had.co.nz/
+"
+"0","library(dplyr)"
+"0","library(gridExtra) # For arranging multiple plots"
+"2","
+Attaching package: ‘gridExtra’
+
+"
+"2","The following object is masked from ‘package:dplyr’:
+
+    combine
+
+"
